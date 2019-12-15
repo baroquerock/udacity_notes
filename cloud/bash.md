@@ -1,7 +1,7 @@
 # BASH basics
 
 
-1. __echo X__ - repeat the string X back
+- __echo X__ - repeat the string X back
 
 ``` bash
 echo hello
@@ -9,7 +9,7 @@ hello
 ```
 
 
-2. __!!__ - re-run the last command
+- __!!__ - re-run the last command
 
 ``` bash
 !!
@@ -17,7 +17,7 @@ echo hello
 hello
 ```
 
-3. __$X__ - reference of the variable X
+- __$X__ - reference of the variable X
 
 ``` bash
 x=100 
@@ -25,7 +25,7 @@ echo $x
 100
 ```
 
-4. __ls X__ (list) - list the contents of the X directory
+- __ls__ (list) - list the contents of the X directory
 
    __cd X__ (change directory) - 
 
