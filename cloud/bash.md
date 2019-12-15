@@ -7,9 +7,9 @@
 echo hello
 hello
 ```
-
-
-
+<br/>
+<br/>
+<br/>
 - __!!__ - re-run the last command
 
 ``` bash
@@ -17,9 +17,9 @@ hello
 echo hello
 hello
 ```
-
-
-
+<br/>
+<br/>
+<br/>
 - __$X__ - reference of the variable X
 
 ``` bash
@@ -27,9 +27,9 @@ x=100
 echo $x
 100
 ```
-
-
-
+<br/>
+<br/>
+<br/>
 - __ls__ - list the contents of the current directory
 
   __ls -l__ - a more detailed list 
@@ -37,10 +37,9 @@ echo $x
   __cd X__ - change directory to X
 
   __pwd__ - print the current (working) directory
-
-
-
-
+<br/>
+<br/>
+<br/>
 - Shortcuts:
 
  . - working directory 
@@ -48,31 +47,27 @@ echo $x
  .. - parent directory
 
  ~ - home directory
-
-
-
-
+<br/>
+<br/>
+<br/>
 - __mkdir X__ - create a new directory X
 
   __mv X Y__ - more the file X to the directory Y
-
-
-
-
+<br/>
+<br/>
+<br/>
 - __curl 'http://www.google.com'__ - download the page
 
   __curl -L -o some_file.html 'http://www.google.com'__ - download the page following redirects (-L) and outputing the result to the _some_file.html_ (-o)
-
-
-
-
+<br/>
+<br/>
+<br/>
 - __cat X__ - display the contents of a file to the terminal
 
   __less X__ - display the contents of a file to the terminal with the possibility to search and scroll
-
-
-
-
+<br/>
+<br/>
+<br/>
 - Managing the __less__ command:
 
     scroll down - spacebar or down arrow
@@ -82,10 +77,9 @@ echo $x
     search - forward slack /
 
     exit less - q key
-
-
-
-
+<br/>
+<br/>
+<br/>
 - __rm X__ - permanently delete the file X
 
   __rm -i X__ - permanently delete the file X but double check first
