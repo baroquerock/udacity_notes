@@ -26,13 +26,18 @@ echo $x
 ```
 
 - __ls__ - list the contents of the current directory
+
   __cd X__ - change directory to X
+
   __pwd__ - print the current (working) directory
 
 
 - Shortcuts:
+
  . - working directory 
+
  .. - parent directory
+ 
  ~ - home directory
 
 
