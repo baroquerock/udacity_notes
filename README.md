@@ -4,6 +4,7 @@ These are my notes that were taken during various Udacity scholarship programs. 
 
 ## DevOps Scholarship from Bertelsmann 
 
+1. [BASH basics](cloud/bash.md)
 
 ## PyTorch Scholarship from Facebook 
 
