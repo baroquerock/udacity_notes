@@ -27,6 +27,8 @@ echo $x
 
 - __ls__ - list the contents of the current directory
 
+  __ls -l__ - a more detailed list 
+
   __cd X__ - change directory to X
 
   __pwd__ - print the current (working) directory
@@ -37,104 +39,43 @@ echo $x
  . - working directory 
 
  .. - parent directory
- 
+
  ~ - home directory
 
 
- 
+- __mkdir X__ - create a new directory X
 
-Absolute vs. relative path
-relative to your current location (the current working directory).
-a partial path to the directory you want to go, as long as the partial path includes all the steps needed to get there from wherever you're currently located.
-
-The other option is to give an absolute path. This is where you provide the full path, all the way from the home directory.
-
-cd /home/workspace/Desktop/Photos
+  __mv X Y__ - more the file X to the directory Y
 
 
-cd ~
+- __curl 'http://www.google.com'__ - download the page
+
+  __curl -L -o some_file.html 'http://www.google.com'__ - download the page following redirects (-L) and outputing the result to the _some_file.html_ (-o)
 
 
+- __cat X__ - display the contents of a file to the terminal
 
-ls -l(ong)
-a more detailed list
-
-
-ls *.txt
-
-mkdir - create a new dir
-mv X Y move the file X to the dir Y
+  __less X__ - display the contents of a file to the terminal with the possibility to search and scroll
 
 
-curl 'http://www.google.com'
-Note: You may have noticed we put single quotes ' around the URL. A lot of URLs have special characters in them, such as the & sign, which have unusual meanings to the shell. That's why we're always putting these URLs in quotes … even though these particular examples would work without them, it's a good practice to get into.
+- Managing the __less__ command:
 
-If you add the -L option to curl, it will first follow any redirects, and then download the file from wherever the redirects ultimately go. In other words, if you enter:
+    Scroll down: spacebar or down arrow
 
+    Scroll up: b key or up arrow
 
-Following redirects (-L)
+    Search: forward slack /
 
+    Exit less: q key
 
-Output to a file (-o)
-By default, curl will output whatever it downloads directly to the terminal. This typically results in a big mess of code filling up your terminal window, something that isn't always particularly useful.
+- __rm X__ - permanently delete the file X
 
-Instead, you can tell curl to output the data to a file by adding the -o option:
+  __rm -i X__ - permanently delete the file X but double check first
 
-curl -L -o 'http://www.google.com'
-Of course, it also needs to create a file to put the data into, so you'll need to tell it that as well:
+  __rm X Y Z__ permanently delete the files X, Y, Z
 
-curl -L -o some_file.html 'http://www.google.com'
+  __rmdir X__ - permanently delete the directory X (should be empty)
 
-
-
-cat and less
-Karl described two ways of viewing the contents of a file. The cat command will display the full contents of the file:
-
-cat dictionary.txt
-The limitation is that files often have more text than will fit on the screen at once. When that's the case, you can use less, as in:
-
-less dictionary.txt
-This displays the output in a format that allows you to search and scroll.
-
-
-Once you've started the less program, you can use some different keys to move around. See if you can remember which key to press for each of these things:
-
-
-Scroll down. - spacebar or down arrow
-
-
-Scroll up. - b key or up arrow
-
-
-Search. forward slack /
-
- 
-Exit less. q key
-
-
-rm example
-rm -i example (permanently but double checl)
-
-rmdir example1 example2 example3
-
-
-By the way, when using the rmdir command, it will only delete a directory that is empty. If the directory has files inside, you'll get an error saying Directory not empty. This helps prevent you from accidentally deleting a folder that contains a bunch of files.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  __rmdir -r X__ - permanently delete the directory X with all it's content
 
 
