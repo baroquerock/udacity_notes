@@ -1,8 +1,13 @@
 # udacity_notes
 
-These are my notes that were taken during Udacity Pytorch Scholarship. All images belong to Udacity. 
+These are my notes that were taken during various Udacity scholarship programs. All images belong to Udacity. 
 
-1. [Deep Learing basics](notes/udacity_nn_basics_tatiana_gaponova.pdf)
-2. [CNN theory](notes/udacity_cnn_tatiana_gaponova.pdf)
-3. [Style transfer](notes/udacity_style_transfer_tatiana_gaponova.pdf)
-4. [RNN theory](notes/vanillaRNN.ipynb)
+## Cloud Scholarship from Bertelsmann 
+
+
+## PyTorch Scholarship from Facebook 
+
+1. [Deep Learing basics](pytorch/udacity_nn_basics_tatiana_gaponova.pdf)
+2. [CNN theory](pytorch/udacity_cnn_tatiana_gaponova.pdf)
+3. [Style transfer](pytorch/udacity_style_transfer_tatiana_gaponova.pdf)
+4. [RNN theory](pytorch/vanillaRNN.ipynb)
