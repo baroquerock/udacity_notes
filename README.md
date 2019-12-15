@@ -2,7 +2,7 @@
 
 These are my notes that were taken during various Udacity scholarship programs. All images belong to Udacity. 
 
-## Cloud Scholarship from Bertelsmann 
+## DevOps Scholarship from Bertelsmann 
 
 
 ## PyTorch Scholarship from Facebook 
