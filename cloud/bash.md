@@ -9,6 +9,7 @@ hello
 ```
 
 
+
 - __!!__ - re-run the last command
 
 ``` bash
@@ -16,6 +17,8 @@ hello
 echo hello
 hello
 ```
+
+
 
 - __$X__ - reference of the variable X
 
@@ -25,6 +28,8 @@ echo $x
 100
 ```
 
+
+
 - __ls__ - list the contents of the current directory
 
   __ls -l__ - a more detailed list 
@@ -32,6 +37,8 @@ echo $x
   __cd X__ - change directory to X
 
   __pwd__ - print the current (working) directory
+
+
 
 
 - Shortcuts:
@@ -43,9 +50,13 @@ echo $x
  ~ - home directory
 
 
+
+
 - __mkdir X__ - create a new directory X
 
   __mv X Y__ - more the file X to the directory Y
+
+
 
 
 - __curl 'http://www.google.com'__ - download the page
@@ -53,20 +64,27 @@ echo $x
   __curl -L -o some_file.html 'http://www.google.com'__ - download the page following redirects (-L) and outputing the result to the _some_file.html_ (-o)
 
 
+
+
 - __cat X__ - display the contents of a file to the terminal
 
   __less X__ - display the contents of a file to the terminal with the possibility to search and scroll
 
 
+
+
 - Managing the __less__ command:
 
-    Scroll down: spacebar or down arrow
+    scroll down - spacebar or down arrow
 
-    Scroll up: b key or up arrow
+    scroll up - b key or up arrow
 
-    Search: forward slack /
+    search - forward slack /
 
-    Exit less: q key
+    exit less - q key
+
+
+
 
 - __rm X__ - permanently delete the file X
 
