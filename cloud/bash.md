@@ -1,31 +1,35 @@
 # BASH basics
 
 
-__echo X__ - repeat the string X back
+1. __echo X__ - repeat the string X back
 
 ``` bash
 echo hello
-_
 hello
 ```
 
 
-__!!__ -  re-run the last command
+2. __!!__ - re-run the last command
 
 ``` bash
 !!
-_
 echo hello
 hello
 ```
 
+3. __$X__ - reference of the variable X
 
-
-x=100 (not x = 100)
+``` bash
+x=100 
 echo $x
 100
+```
 
-ls - list the contents of the current dir
+4. __ls X__ (list) - list the contents of the X directory
+
+   __cd X__ (change directory) - 
+
+ls - 
 cd 
 cd ..
 ls ..
