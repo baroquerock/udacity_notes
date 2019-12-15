@@ -25,23 +25,18 @@ echo $x
 100
 ```
 
-- __ls__ (list) - list the contents of the X directory
-
-   __cd X__ (change directory) - 
-
-ls - 
-cd 
-cd ..
-ls ..
+- __ls__ - list the contents of the current directory
+  __cd X__ - change directory to X
+  __pwd__ - print the current (working) directory
 
 
-shortcuts
-Working directory .
-Parent directory ..
-Home directory ~
+- Shortcuts:
+ . - working directory 
+ .. - parent directory
+ ~ - home directory
 
-pwd Print the current (working) directory to the terminal.
 
+ 
 
 Absolute vs. relative path
 relative to your current location (the current working directory).
