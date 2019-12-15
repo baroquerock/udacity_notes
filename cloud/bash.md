@@ -49,6 +49,7 @@ echo $x
  ~ - home directory
 <br/>
 <br/>
+<br/>
 
 - __mkdir X__ - create a new directory X
 
