@@ -17,8 +17,7 @@
 **Branch** - when a new line of development is created that diverges from the main line of development (can continue without altering the main line)
 
 
-## Commands
-
+## Initializing
 
 **git init** - sets up all of the necessary files and directories in a hidden directory called _.git_. The content of the _.git_ directory:
 
@@ -35,8 +34,10 @@
 - _refs directory_ - this directory holds pointers to commits (basically the "branches" and "tags")
 
 
-
 **git clone path new_repo** - clone an existing repo (path) into new repo
+
+
+## Logging
 
 **git status** - shows the state of our repository as Git sees it
 
@@ -54,6 +55,11 @@
 
 **git show SHA** - displays only one commit with the specified SHA, the output is exactly the same as the _git log -p SHA_: the commit, the author, the date, the commit message, the patch information. The command can be combined with the flags: _--stat_, _--patch_, _--ignore-all-space_
 
+**git log --oneline --decorate --graph --all** - displays all branches at once in the git log output, the _--graph_ flag adds the bullets and lines to the leftmost part of the output, the _--all_ flag is what displays all of the branches in the repository
+
+
+## Making commits
+
 **git add <file1> <file2> … <fileN>** - moves files from the Working Directory to the Staging Index
 
 **git commit -m message** - commits the changes to the repo (can be used without _-m_ flag with a code editor). The goal is that each commit has a single focus. Each commit should record a single-unit change
@@ -66,6 +72,9 @@
 
 **git tag -d tag_name** - deletes the tag with the name _tag_name_
 
+
+## Branching
+
 **git branch** - can be used to list all branch names in the repository, create new branches, delete branches
 
 **git branch branch_name** - creates a branch _branch_name_
@@ -76,8 +85,8 @@
 
 **git checkout -b branch_name** - creates a branch and switches to it all in one command
 
-**git log --oneline --decorate --graph --all** - displays all branches at once in the git log output, the _--graph_ flag adds the bullets and lines to the leftmost part of the output, the _--all_ flag is what displays all of the branches in the repository
 
+## Merging
 
 
 
