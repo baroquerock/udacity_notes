@@ -1,6 +1,6 @@
-#Version control
+# Version control
 
-##Terminology
+## Terminology
 
 **Version Control System (VCS)** / **Source Code Manager (SCM)** - a tool that manages different versions of source code
 
@@ -17,7 +17,7 @@
 **Branch** - when a new line of development is created that diverges from the main line of development (can continue without altering the main line)
 
 
-##Commands
+## Commands
 
 
 **git init** - sets up all of the necessary files and directories in a hidden directory called _.git_. The content of the _.git_ directory:
