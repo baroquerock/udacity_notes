@@ -91,86 +91,30 @@
 - _merging_ is combining branches together
 - making a merge makes a commit!
 - two main types of merges in Git: a regular merge and a fast-forward merge
+- a _fast-forward merge_ happens when one branch is ahead of another, so the merge will just move the currently checked out branch forward until it points to the same commit that the other branch, it is one of the easiest merges to do
 
-**git merge branch_name** - merges _branch_name_ into the current (checked-out) branch, the command finds a single commit that both branches have in their commit history, combines the lines of code that were changed on the separate branches, makes a commit to record the merge
+**git merge branch_name** - merges _branch_name_ into the current (checked-out) branch, the command finds a single commit that both branches have in their commit history, combines the lines of code that were changed on the separate branches, makes a commit to record the merge, a commit message needs to be supplied (!)
 
 **git reset --hard HEAD^** - the command to undo the merge
 
 
+## Merge Conflict Indicators Explanation
 
-
-Fast-forward Merge
-In our project, I've checked out the master branch and I want _it_ to have the changes that are on the footer branch. If I wanted to verbalize this, I could say this is - "I want to merge in the footer branch". That "merge in" is important; when a merge is performed, the other branch's changes are brought into the branch that's currently checked out.
-
-Let me stress that again - When we merge, we're merging some other branch into the current (checked-out) branch. We're not merging two branches into a new branch. We're not merging the current branch into the other branch.
-
-Now, since footer is directly ahead of master, this merge is one of the easiest merges to do. Merging footer into master will cause a Fast-forward merge. A Fast-forward merge will just move the currently checked out branch forward until it points to the same commit that the other branch (in this case, footer) is pointing to.
-
-
-
-
-
-
-Perform A Regular Merge
-
-
-
-
-$ git merge sidebar
-Because this combines two divergent branches, a commit is going to be made. And when a commit is made, a commit message needs to be supplied. Since this is a merge commit a default message is already supplied. You can change the message if you want, but it's common practice to use the default merge commit message. So when your code editor opens with the message, just close it again and accept that commit message.
-
-
-
-
-Merge Conflict Indicators Explanation
-The editor has the following merge conflict indicators:
-
+```
 <<<<<<< HEAD everything below this line (until the next indicator) shows you what's on the current branch
 ||||||| merged common ancestors everything below this line (until the next indicator) shows you what the original lines were
 ======= is the end of the original lines, everything that follows (until the next indicator) is what's on the branch that's being merged in
 >>>>>>> heading-update is the ending indicator of what's on the branch that's being merged in (in this case, the heading-update branch)
+```
+
+## Making changes
+
+**git commit --amend** - alters the most-recent commit (change the message, add forgotten files), in order to add new files, those files should be stages as for a regular commit before running the command
+
+**git revert SHA** - reverts a specific commit (does the exact opposite of that commit), creates a new commit with the opposite action. Resetting is different from reverting, it erases commits from the repo history completely (!)
 
 
-
-
-Changing The Last Commit
-You've already made plenty of commits with the git commit command. Now with the --amend flag, you can alter the most-recent commit.
-
-$ git commit --amend
-If your Working Directory is clean (meaning there aren't any uncommitted changes in the repository), then running git commit --amend will let you provide a new commit message. Your code editor will open up and display the original commit message. Just fix a misspelling or completely reword it! Then save it and close the editor to lock in the new commit message.
-
-Add Forgotten Files To Commit
-Alternatively, git commit --amend will let you include files (or changes to files) you might've forgotten to include. Let's say you've updated the color of all navigation links across your entire website. You committed that change and thought you were done. But then you discovered that a special nav link buried deep on a page doesn't have the new color. You could just make a new commit that updates the color for that one link, but that would have two back-to-back commits that do practically the exact same thing (change link colors).
-
-Instead, you can amend the last commit (the one that updated the color of all of the other links) to include this forgotten one. To do get the forgotten link included, just:
-
-edit the file(s)
-save the file(s)
-stage the file(s)
-and run git commit --amend
-So you'd make changes to the necessary CSS and/or HTML files to get the forgotten link styled correctly, then you'd save all of the files that were modified, then you'd use git add to stage all of the modified files (just as if you were going to make a new commit!), but then you'd run git commit --amend to update the most-recent commit instead of creating a new one
-
-
-
-When you tell Git to revert a specific commit, Git takes the changes that were made in commit and does the exact opposite of them. Let's break that down a bit. If a character is added in commit A, if Git reverts commit A, then Git will make a new commit where that character is deleted. It also works the other way where if a character/line is removed, then reverting that commit will add that content back!
-
-
-
-git revert <SHA-of-commit-to-revert>
-
-
-
-	Reset vs Revert
-At first glance, resetting might seem coincidentally close to reverting, but they are actually quite different. Reverting creates a new commit that reverts or undos a previous commit. Resetting, on the other hand, erases commits!
-
-⚠️ Resetting Is Dangerous ⚠️
-You've got to be careful with Git's resetting capabilities. This is one of the few commands that lets you erase commits from the repository. If a commit is no longer in the repository, then its content is gone.
-
-To alleviate the stress a bit, Git does keep track of everything for about 30 days before it completely erases anything. To access this content, you'll need to use the git reflog command. Check out these links for more info:
-
-
-
-Relative Commit References
+## Relative Commit References
 You already know that you can reference commits by their SHA, by tags, branches, and the special HEAD pointer. Sometimes that's not enough, though. There will be times when you'll want to reference a commit relative to another commit. For example, there will be times where you'll want to tell Git about the commit that's one before the current commit...or two before the current commit. There are special characters called "Ancestry References" that we can use to tell Git about these relative references. Those characters are:
 
 ^ – indicates the parent commit
