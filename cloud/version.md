@@ -36,94 +36,25 @@
 
 
 
+**git clone path new_repo** - clone an existing repo (path) into new repo
 
-The command is git clone and then you pass the path to the Git repository that you want to clone. The project that we'll be using throughout this course is located at this URL: https://github.com/udacity/course-git-blog-project So using this URL, the full command to clone blog project is:
+**git status** - shows the state of our repository as Git sees it
 
+**git log** - displays the following info about each commit: the SHA, the author, the date, the message
 
-Why don't you check out the documentation for git clone and pick the correct way to do it from the options below. The command should clone the blog project repo and store it in a directory named blog-project.
+**git log --oneline** - a more succinct version of _git log_
 
-$ git clone https://github.com/libgit2/libgit2 mylibgit
+**git log --stat** - displays the files that have been changed in the commit: the file(s) that have been modified, the number of lines that have been added/removed, a summary line with the total number of modified files and lines that have been added/removed
 
+**git log -p** / **git log --patch** - displays the actual changes made to a file
 
-**git status**
+**-w** / **--ignore-all-space** - ignore whitespace when comparing lines
 
-The  is our key to the mind of Git. It will tell us what Git is thinking and the state of our repository as Git sees it. When you're first starting out, you should be using the git status command all of the time! Seriously. You should get into the habit of running it after any other command. This will help you learn how Git works and it'll help you from making (possibly) incorrect assumptions about the state of your files/repository.
+**git log SHA** - by supplying a SHA, the _git log_ command will start at that commit
 
+**git show** - displays the most recent commit
 
-**git log**
-the SHA
-the author
-the date
-and the message
-
-
-
-
-Let's think about some of these questions:
-
-the SHA - git log will display the complete SHA for every single commit. Each SHA is unique, so we don't really need to see the entire SHA. We could get by perfectly fine with knowing just the first 6-8 characters. Wouldn't it be great if we could save some space and show just the first 5 or so characters of the SHA?
-the author - the git log output displays the commit author for every single commit! It could be different for other repositories that have multiple people collaborating together, but for this one, there's only one person making all of the commits, so the commit author will be identical for all of them. Do we need to see the author for each one? What if we wanted to hide that information?
-the date - By default, git log will display the date for each commit. But do we really care about the commit's date? Knowing the date might be important occasionally, but typically knowing the date isn't vitally important and can be ignored in a lot of cases. Is there a way we could hide that to save space?
-the commit message - this is one of the most important parts of a commit message...we usually always want to see this
-
-
-**git log --oneline**
-The git log command has a flag that can be used to alter how it displays the repository's information. That flag is --oneline:
-
-
-**git log --stat**
-
-The git log command has a flag that can be used to display the files that have been changed in the commit, as well as the number of lines that have been added or deleted. The flag is --stat ("stat" is short for "statistics"):
-
-
-$ git log --stat
-This command:
-
-displays the file(s) that have been modified
-displays the number of lines that have been added/removed
-displays a summary line with the total number of modified files and lines that have been added/removed
-
-
-**git log -p**
-The git log command has a flag that can be used to display the actual changes made to a file. The flag is --patch which can be shortened to just -p:
-
-$ git log -p
-Run this command and check out what it displays.
-
--w
---ignore-all-space
-Ignore whitespace when comparing lines. This ignores differences even if one line has whitespace where the other line has none.
-
-
-But did you know, you can supply the SHA of a commit as the final argument for all of these commands? For example:
-
-**git log -p fdf5493**
-
-By supplying a SHA, the git log -p command will start at that commit! No need to scroll through everything! Keep in mind that it will also show all of the commits that were made prior to the supplied SHA.
-
-
-
-**git show**
-The other command that shows a specific commit is git show:
-
-$ git show
-Running it like the example above will only display the most recent commit. Typically, a SHA is provided as a final argument:
-
-$ git show fdf5493
-What does git show do?
-The git show command will show only one commit. So don't get alarmed when you can't find any other commits - it only shows one. The output of the git show command is exactly the same as the git log -p command. So by default, git show displays:
-
-the commit
-the author
-the date
-the commit message
-the patch information
-However, git show can be combined with most of the other flags we've looked at:
-
---stat - to show the how many files were changed and the number of lines that were added/removed
--p or --patch - this the default, but if --stat is used, the patch won't display, so pass -p to add it again
--w - to ignore changes to whitespace
-
+**git show SHA** - displays only one commit with the specified SHA, the output is exactly the same as the _git log -p SHA_: the commit, the author, the date, the commit message, the patch information. The command can be combined with the flags: _--stat_, _--patch_, _--ignore-all-space_
 
 
 
