@@ -46,9 +46,7 @@
 
 **git log --stat** - displays the files that have been changed in the commit: the file(s) that have been modified, the number of lines that have been added/removed, a summary line with the total number of modified files and lines that have been added/removed
 
-**git log -p** / **git log --patch** - displays the actual changes made to a file
-
-**-w** / **--ignore-all-space** - ignore whitespace when comparing lines
+**git log -p** / **git log --patch** - displays the actual changes made to a file, different flags can be used (for example, _-w_ or _--ignore-all-space_ ignores whitespace when comparing lines)
 
 **git log SHA** - by supplying a SHA, the _git log_ command will start at that commit
 
@@ -56,234 +54,29 @@
 
 **git show SHA** - displays only one commit with the specified SHA, the output is exactly the same as the _git log -p SHA_: the commit, the author, the date, the commit message, the patch information. The command can be combined with the flags: _--stat_, _--patch_, _--ignore-all-space_
 
+**git add <file1> <file2> … <fileN>** - moves files from the Working Directory to the Staging Index
 
+**git commit -m message** - commits the changes to the repo (can be used without _-m_ flag with a code editor). The goal is that each commit has a single focus. Each commit should record a single-unit change
 
+**git diff** - displays the changes that have been made but haven't been committed: the files that have been modified, the location of the lines that have been added/removed, the actual changes that have been made
 
-TIP: Did you also notice the helpful text that's located just beneath "Changes to be committed"? It says (use "git rm --cached <file>..." to unstage) This is a hint of what you should do if you accidentally ran git add and gave it the wrong file.
+**git tag -a tag_name** - adds a marker on a _most recent_ commit, the tag does not move around as new commits are added, the _-a_ flas creates an annotated flag (instead of a lightweight one), which includes the following info: the person who made the tag, the date the tag was made, a message for the tag
 
-As a side note, git rm --cached is not like the shell's rm command. git rm --cached will not destroy any of your work; it just removes it from the Staging Index.
+**git tag -a tag_name SHA** - adds a marker on a _specific_ commit
 
-Also, this used the word "unstage". The act of moving a file from the Working Directory to the Staging Index is called "staging". If a file has been moved, then it has been "staged". Moving a file from the Staging Index back to the Working Directory will unstage the file. If you read documentation that says "stage the following files" that means you should use the git add command.
+**git tag -d tag_name** - deletes the tag with the name _tag_name_
 
+**git branch** - can be used to list all branch names in the repository, create new branches, delete branches
 
-Git Add Recap
-The git add command is used to move files from the Working Directory to the Staging Index.
+**git branch branch_name** - creates a branch _branch_name_
 
-$ git add <file1> <file2> … <fileN>
-This command:
+**git checkout branch_name** - switches to the branch _branch_name_
 
-takes a space-separated list of file names
-alternatively, the period . can be used in place of a list of files to tell Git to add the current directory (and all nested files)
+**git branch -d branch_name** - deletes the branch _branch_name_ (the deletion can be forced with _-D_)
 
+**git checkout -b branch_name** - creates a branch and switches to it all in one command
 
-
-Bypass The Editor With The -m Flag
-TIP: If the commit message you're writing is short and you don't want to wait for your code editor to open up to type it out, you can pass your message directly on the command line with the -m flag:
-
-$ git commit -m "Initial commit"
-In the example above, the text "Initial commit" is used as the commit message. Be aware that you can't provide a description for the commit, only the message part.
-
-
-The goal is that each commit has a single focus. Each commit should record a single-unit change. Now this can be a bit subjective (which is totally fine), but each commit should make a change to just one aspect of the project.
-
-
-Git Commit Recap
-The git commit command takes files from the Staging Index and saves them in the repository.
-
-$ git commit
-This command:
-
-will open the code editor that is specified in your configuration
-(check out the Git configuration step from the first lesson to configure your editor)
-Inside the code editor:
-
-a commit message must be supplied
-lines that start with a # are comments and will not be recorded
-save the file after adding a commit message
-close the editor to make the commit
-Then, use git log to review the commit you just made!
-
-Do
-
-do keep the message short (less than 60-ish characters)
-do explain what the commit does (not how or why!)
-Do not
-
-do not explain why the changes are made (more on this below)
-do not explain how the changes are made (that's what git log -p is for!)
-do not use the word "and"
-if you have to use "and", your commit message is probably doing too many changes - break the changes into separate commits
-e.g. "make the background color pink and increase the size of the sidebar"
-
-Explain the Why
-If you need to explain why a commit needs to be made, you can!
-
-When you're writing the commit message, the first line is the message itself. After the message, leave a blank line, and then type out the body or explanation including details about why the commit is needed (e.g. URL links).
-
-Here's what a commit message edit screen might look like:
-
-Git Diff Recap
-To recap, the git diff command is used to see changes that have been made but haven't been committed, yet:
-
-$ git diff
-This command displays:
-
-the files that have been modified
-the location of the lines that have been added/removed
-the actual changes that have been made
-
-
-
-Let's say that you add 50 images to your project, but want Git to ignore all of them. Does this mean you have to list each and every filename in the .gitignore file? Oh gosh no, that would be crazy! Instead, you can use a concept called globbing.
-
-Globbing lets you use special characters to match patterns/characters. In the .gitignore file, you can use the following:
-
-blank lines can be used for spacing
-# - marks line as a comment
-* - matches 0 or more characters
-? - matches 1 character
-[abc] - matches a, b, _or_ c
-** - matches nested directories - a/**/z matches
-a/z
-a/b/z
-a/b/c/z
-
-
-Git Ignore Recap
-To recap, the .gitignore file is used to tell Git about the files that Git should not track. This file should be placed in the same directory that the .git directory is in.
-
-
-
-
-
-CAREFUL: In the command above (git tag -a v1.0) the -a flag is used. This flag tells Git to create an annotated flag. If you don't provide the flag (i.e. git tag v1.0) then it'll create what's called a lightweight tag.
-
-Annotated tags are recommended because they include a lot of extra information such as:
-
-the person who made the tag
-the date the tag was made
-a message for the tag
-Because of this, you should always use annotated tags.
-
-
-Git Log's --decorate Flag
-As you've learned, git log is a pretty powerful tool for letting us check out a repository's commits. We've already looked at a couple of its flags, but it's time to add a new one to our toolbelt. The --decorate flag will show us some details that are hidden from the default view.
-
-Try running git log --decorate now!
-
-
-In the 2.13 update to Git, the log command has changed to automatically enable the --decorate flag. This means that you do not need to include the --decorate flag in your command, since it is automatically included, anyway! So the following commands result in the exact same output:
-
-Deleting A Tag
-What if you accidentally misspelled something in the tag's message, or mistyped the actual tag name (v0.1 instead of v1.0). How could you fix this? The easiest way is just to delete the tag and make a new one.
-
-A Git tag can be deleted with the -d flag (for delete!) and the name of the tag:
-
-$ git tag -d v1.0
-
-
-Adding A Tag To A Past Commit
-Running git tag -a v1.0 will tag the most recent commit. But what if you wanted to tag a commit that occurred farther back in the repo's history?
-
-All you have to do is provide the SHA of the commit you want to tag!
-
-$ git tag -a v1.0 a87984
-(after popping open a code editor to let you supply the tag's message) this command will tag the commit with the SHA a87084 with the tag v1.0. Using this technique, you can tag any commit in the entire git repository! Pretty neat, right?...and it's just a simple addition to add the SHA of a commit to the Git tagging command you already know.
-
-
-Git Tag Recap
-To recap, the git tag command is used to add a marker on a specific commit. The tag does not move around as new commits are added.
-
-$ git tag -a beta
-This command will:
-
-add a tag to the most recent commit
-add a tag to a specific commit if a SHA is passed
-
-
-
-The git branch command
-The git branch command is used to interact with Git's branches:
-
-$ git branch
-It can be used to:
-
-list all branch names in the repository
-create new branches
-delete branches
-
-
-
-Create A Branch
-To create a branch, all you have to do is use git branch and provide it the name of the branch you want it to create. So if you want a branch called "sidebar", you'd run this command:
-
-$ git branch sidebar
-
-
-
-
-The git checkout Command
-Remember that when a commit is made that it will be added to the current branch. So even though we created the new sidebar, no new commits will be added to it since we haven't switched to it, yet. If we made a commit right now, that commit would be added to the master branch, not the sidebar branch. We've already seen this in the demo, but to switch between branches, we need to use Git's checkout command.
-
-$ git checkout sidebar
-
-
-
-Branches In The Log
-The branch information in the command prompt is helpful, but the clearest way to see it is by looking at the output of git log. But just like we had to use the --decorate flag to display Git tags, we need it to display branches.
-
-$ git log --oneline --decorate
-
-
-Delete A Branch
-A branch is used to do development or make a fix to the project that won't affect the project (since the changes are made on a branch). Once you make the change on the branch, you can combine that branch into the master branch (this "combining of branches" is called "merging" and we'll look at it shortly).
-
-Now after a branch's changes have been merged, you probably won't need the branch anymore. If you want to delete the branch, you'd use the -d flag. The command below includes the -d flag which tells Git to delete the provided branch (in this case, the "sidebar" branch).
-
-$ git branch -d sidebar
-
-
-To force deletion, you need to use a capital D flag - git branch -D sidebar
-
-
-Git Branch Recap
-To recap, the git branch command is used to manage branches in Git:
-
-# to list all branches
-$ git branch
-
-# to create a new "footer-fix" branch
-$ git branch footer-fix
-
-# to delete the "footer-fix" branch
-$ git branch -d footer-fix
-This command is used to:
-
-list out local branches
-create new branches
-remove branches
-
-
-
-
-But did you know that the git checkout command can actually create a new branch, too? If you provide the -b flag, you can create a branch and switch to it all in one command.
-
-$ git checkout -b richards-branch-for-awesome-changes
-It's a pretty useful command, and I use it often.
-
-
-
-
-
-See All Branches At Once
-We've made it to the end of all the changes we needed to make! Awesome job!
-
-Now we have multiple sets of changes on three different branches. We can't see other branches in the git log output unless we switch to a branch. Wouldn't it be nice if we could see all branches at once in the git log output.
-
-As you've hopefully learned by now, the git log command is pretty powerful and can show us this information. We'll use the new --graph and --all flags:
-
-$ git log --oneline --decorate --graph --all
-The --graph flag adds the bullets and lines to the leftmost part of the output. This shows the actual branching that's happening. The --all flag is what displays all of the branches in the repository.
+**git log --oneline --decorate --graph --all** - displays all branches at once in the git log output, the _--graph_ flag adds the bullets and lines to the leftmost part of the output, the _--all_ flag is what displays all of the branches in the repository
 
 
 
@@ -413,4 +206,32 @@ HEAD~3
 The main difference between the ^ and the ~ is when a commit is created from a merge. A merge commit has two parents. With a merge commit, the ^ reference is used to indicate the first parent of the commit while ^2 indicates the second parent. The first parent is the branch you were on when you ran git merge while the second parent is the branch that was merged in.
 
 
+## Commit messages
 
+- do keep the message short (less than 60-ish characters)
+- do explain what the commit does (not how or why!)
+
+- do not explain why the changes are made (more on this below)
+- do not explain how the changes are made (that's what git log -p is for!)
+- do not use the word "and"
+
+
+
+
+Let's say that you add 50 images to your project, but want Git to ignore all of them. Does this mean you have to list each and every filename in the .gitignore file? Oh gosh no, that would be crazy! Instead, you can use a concept called globbing.
+
+Globbing lets you use special characters to match patterns/characters. In the .gitignore file, you can use the following:
+
+blank lines can be used for spacing
+# - marks line as a comment
+* - matches 0 or more characters
+? - matches 1 character
+[abc] - matches a, b, _or_ c
+** - matches nested directories - a/**/z matches
+a/z
+a/b/z
+a/b/c/z
+
+
+Git Ignore Recap
+To recap, the .gitignore file is used to tell Git about the files that Git should not track. This file should be placed in the same directory that the .git directory is in.
