@@ -1,10 +1,11 @@
 # udacity_notes
 
-These are my notes that were taken during various Udacity scholarship programs. All images belong to Udacity. 
+These are my notes that were taken during various Udacity scholarship programs. All images (and sometimes text) belong to Udacity. 
 
 ## DevOps Scholarship from Bertelsmann 
 
 1. [BASH basics](cloud/bash.md)
+2. [Version control](cloud/version.md)
 
 ## PyTorch Scholarship from Facebook 
 
