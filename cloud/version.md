@@ -88,33 +88,13 @@
 
 ## Merging
 
+- _merging_ is combining branches together
+- making a merge makes a commit!
+- two main types of merges in Git: a regular merge and a fast-forward merge
 
+**git merge branch_name** - merges _branch_name_ into the current (checked-out) branch, the command finds a single commit that both branches have in their commit history, combines the lines of code that were changed on the separate branches, makes a commit to record the merge
 
-Combining branches together is called merging.
-
-Let's see how this works, in theory. Pay attention to the two main types of merges in Git, a regular merge and a Fast-forward merge.
-
-
-
-
-It's very important to know which branch you're on when you're about to merge branches together. Remember that making a merge makes a commit.
-
-As of right now, we do not know how to undo changes. We'll go over it in the next lesson, but if you make a merge on the wrong branch, use this command to undo the merge:
-
-git reset --hard HEAD^
-
-(Make sure to include the ^ character! It's a known as a "Relative Commit Reference" and indicates "the parent commit". We'll look at Relative Commit References in the next lesson.)
-
-The Merge Command
-The git merge command is used to combine Git branches:
-
-$ git merge <name-of-branch-to-merge-in>
-When a merge happens, Git will:
-
-look at the branches that it's going to merge
-look back along the branch's history to find a single commit that both branches have in their commit history
-combine the lines of code that were changed on the separate branches together
-makes a commit to record the merge
+**git reset --hard HEAD^** - the command to undo the merge
 
 
 
@@ -126,20 +106,15 @@ Let me stress that again - When we merge, we're merging some other branch into t
 
 Now, since footer is directly ahead of master, this merge is one of the easiest merges to do. Merging footer into master will cause a Fast-forward merge. A Fast-forward merge will just move the currently checked out branch forward until it points to the same commit that the other branch (in this case, footer) is pointing to.
 
-To merge in the footer branch, run:
 
 
 
 
 
 Perform A Regular Merge
-Fantastic work doing a Fast-forward merge! That wasn't too hard, was it?
 
-But you might say - "Of course that was easy, all of the commits are already there and the branch pointer just moved forward!"...and you'd be right. It's the simplest of merges.
 
-So let's do the more common kind of merge where two divergent branches are combined. You'll be surprised that to merge in a divergent branch like sidebar is actually no different!
 
-To merge in the sidebar branch, make sure you're on the master branch and run:
 
 $ git merge sidebar
 Because this combines two divergent branches, a commit is going to be made. And when a commit is made, a commit message needs to be supplied. Since this is a merge commit a default message is already supplied. You can change the message if you want, but it's common practice to use the default merge commit message. So when your code editor opens with the message, just close it again and accept that commit message.
