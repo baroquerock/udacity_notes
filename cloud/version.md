@@ -114,24 +114,22 @@
 **git revert SHA** - reverts a specific commit (does the exact opposite of that commit), creates a new commit with the opposite action. Resetting is different from reverting, it erases commits from the repo history completely (!)
 
 
-## Relative Commit References
-You already know that you can reference commits by their SHA, by tags, branches, and the special HEAD pointer. Sometimes that's not enough, though. There will be times when you'll want to reference a commit relative to another commit. For example, there will be times where you'll want to tell Git about the commit that's one before the current commit...or two before the current commit. There are special characters called "Ancestry References" that we can use to tell Git about these relative references. Those characters are:
+## Relative Commit References (Ancestry References)
 
-^ – indicates the parent commit
-~ – indicates the first parent commit
-Here's how we can refer to previous commits:
+**^** – indicates the parent commit
 
-the parent commit – the following indicate the parent commit of the current commit
-HEAD^
-HEAD~
-HEAD~1
-the grandparent commit – the following indicate the grandparent commit of the current commit
-HEAD^^
-HEAD~2
-the great-grandparent commit – the following indicate the great-grandparent commit of the current commit
-HEAD^^^
-HEAD~3
+**~** – indicates the first parent commit
+
 The main difference between the ^ and the ~ is when a commit is created from a merge. A merge commit has two parents. With a merge commit, the ^ reference is used to indicate the first parent of the commit while ^2 indicates the second parent. The first parent is the branch you were on when you ran git merge while the second parent is the branch that was merged in.
+
+
+Examples:
+
+- The following indicates the parent commit of the current commit: _HEAD^_, _HEAD\~_, _HEAD\~1_
+
+- The following indicates the grandparent commit of the current commit: _HEAD^^_, _HEAD\~2_
+
+- The following indicates the great-grandparent commit of the current commit: _HEAD^^^_, _HEAD\~3_
 
 
 ## Commit messages
@@ -144,22 +142,8 @@ The main difference between the ^ and the ~ is when a commit is created from a m
 - do not use the word "and"
 
 
+## Globbing and gitignore
 
+- the *.gitignore* file is used to tell Git about the files that Git should not track, this file should be placed in the same directory that the .git directory is in
 
-Let's say that you add 50 images to your project, but want Git to ignore all of them. Does this mean you have to list each and every filename in the .gitignore file? Oh gosh no, that would be crazy! Instead, you can use a concept called globbing.
-
-Globbing lets you use special characters to match patterns/characters. In the .gitignore file, you can use the following:
-
-blank lines can be used for spacing
-# - marks line as a comment
-* - matches 0 or more characters
-? - matches 1 character
-[abc] - matches a, b, _or_ c
-** - matches nested directories - a/**/z matches
-a/z
-a/b/z
-a/b/c/z
-
-
-Git Ignore Recap
-To recap, the .gitignore file is used to tell Git about the files that Git should not track. This file should be placed in the same directory that the .git directory is in.
+- **globbing** lets you use special characters to match patterns/characters, it is similar to regular expressions
