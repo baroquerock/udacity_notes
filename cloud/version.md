@@ -55,7 +55,7 @@
 
 **git show SHA** - displays only one commit with the specified SHA, the output is exactly the same as the _git log -p SHA_: the commit, the author, the date, the commit message, the patch information. The command can be combined with the flags: _--stat_, _--patch_, _--ignore-all-space_
 
-**git log --oneline --decorate --graph --all** - displays all branches at once in the git log output, the _--graph_ flag adds the bullets and lines to the leftmost part of the output, the _--all_ flag is what displays all of the branches in the repository
+**git log --oneline --graph --all** - displays all branches at once in the git log output, the _--graph_ flag adds the bullets and lines to the leftmost part of the output, the _--all_ flag is what displays all of the branches in the repository
 
 
 ## Making commits
@@ -98,7 +98,9 @@
 **git reset --hard HEAD^** - the command to undo the merge
 
 
-## Merge Conflict Indicators Explanation
+## Merge Conflicts
+
+### Indicators Explanation
 
 ```
 <<<<<<< HEAD everything below this line (until the next indicator) shows you what's on the current branch
@@ -106,6 +108,15 @@
 ======= is the end of the original lines, everything that follows (until the next indicator) is what's on the branch that's being merged in
 >>>>>>> heading-update is the ending indicator of what's on the branch that's being merged in (in this case, the heading-update branch)
 ```
+
+### Resolving A Merge Conflict
+
+- choose which line(s) to keep
+- remove all lines with indicators
+- save the file(s)
+- stage the file(s)
+- make a commit
+
 
 ## Making changes
 
