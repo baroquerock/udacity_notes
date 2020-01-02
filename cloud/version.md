@@ -75,7 +75,7 @@
 ## Resetting changes
 
 **git reset <reference-to-commit>** - erases commits, the exact behavior is different and is based on the flag used, possible options: 
-_--mixed_ (default) moves the commit to the working directory, _--soft_ - moves the commit to the staging index, _--hard_ erases the commit completely
+_--mixed_ (default) moves the commit to the working directory, _--soft_ moves the commit to the staging index, _--hard_ erases the commit completely
 
 ## Branching
 
