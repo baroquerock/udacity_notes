@@ -6,6 +6,7 @@ These are my notes that were taken during various Udacity scholarship programs. 
 
 1. [BASH basics](cloud/bash.md)
 2. [Version control](cloud/version.md)
+3. [Cloud](cloud/cloud.md)
 
 ## PyTorch Scholarship from Facebook 
 
