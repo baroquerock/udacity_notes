@@ -16,6 +16,11 @@
 
 **Branch** - when a new line of development is created that diverges from the main line of development (can continue without altering the main line)
 
+**Forking** - an action that's done on a hosting service, like GitHub. Forking a repository creates an identical copy of the original repository and moves this copy to your account. You have total control over this forked repository. Modifying your forked repository does not alter the original repository in any way
+
+**Pull request** - a request for the source repository to pull in your commits and merge them with their project
+
+
 
 ## Initializing
 
@@ -56,6 +61,12 @@
 **git show SHA** - displays only one commit with the specified SHA, the output is exactly the same as the _git log -p SHA_: the commit, the author, the date, the commit message, the patch information. The command can be combined with the flags: _--stat_, _--patch_, _--ignore-all-space_
 
 **git log --oneline --graph --all** - displays all branches at once in the git log output, the _--graph_ flag adds the bullets and lines to the leftmost part of the output, the _--all_ flag is what displays all of the branches in the repository
+
+**git shortlog** - groups commits by author and title
+
+**git log --author="Richard Kalehoff"** - filters commits with the _--author_ flag
+
+**git log --grep="border radius issue in Safari"** - filters commits using the _--grep_ flag
 
 
 ## Making commits
@@ -155,6 +166,62 @@ Examples:
 - do not explain why the changes are made (more on this below)
 - do not explain how the changes are made (that's what git log -p is for!)
 - do not use the word "and"
+
+## Working with remotes
+
+**git remote -v** - shows the details about a connection to a remote
+
+**git remote add shortname url** - adds a connection to a new remote repository
+
+**git remote rename old_name new_name** - renames remotes
+
+_Note_: **origin** is a common shortname for remote repositories.
+
+**git push remote_repo branch_name** - sends commits from a local repository to a remote repository
+
+**git pull remote_repo branch_name** - pulls commits from a remote repository to a local repository, the command does two things: (1) fetching remote changes (which adds the commits to the local repository and moves the tracking branch to point to them), (2) merging the local branch (master) with the tracking branch (origin/master)
+
+**git fetch remote_repo branch_name** - retrieves the commits and moves the tracking branch
+
+
+## Contributing to open source
+
+
+### General guidelines:
+
+- before you start doing any work, make sure to look for the project's _CONTRIBUTING.md_ file
+- it's a good idea to look at the GitHub issues for the project, if necessary create a new issue
+- communicate the changes you'd like to make to the project maintainer in the issue
+- commit all of your work on a topic branch: do not work on the master branch and make sure to give the topic branch clear, descriptive name
+
+
+### Creating a pull request:
+
+1. you must fork the source repository
+2. clone your fork down to your machine
+3. make some commits (ideally on a topic branch!)
+4. push the commits back to your fork
+5. create a new pull request and choose the branch that has your new commits
+
+
+### Staying in sync with a source repo:
+
+1. get the cloneable URL of the source repository
+2. create a new remote with the git remote add command
+3. use the shortname upstream to point to the source repository
+4. provide the URL of the source repository
+5. fetch the new upstream remote
+6. merge the upstream's branch into a local branch
+7. push the newly updated local branch to your origin repo
+
+
+## Rebasing
+
+**git rebase -i <base>** - interactive rebase
+
+The **git rebase** command is used to do a great many things. It can help you edit commit messages, reorder commits, combine commits, etc. Whenever you rebase commits, Git will create a new SHA for each commit. Inside the interactive list of commits, all commits start out as pick, but you can swap that out with one of the other commands (reword, edit, squash, fixup, exec, and drop). The best practice is to create a backup branch before rebasing, so that it's easy to return to your previous state. 
+
+You should not rebase if you have already pushed the commits you want to rebase. If you're collaborating with other developers, then they might already be working with the commits you've pushed.
 
 
 ## Globbing and gitignore
